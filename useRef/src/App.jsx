@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useIsFirstRender } from './useIsFirstRender'
 import { usePrevious } from './usePrevious';
+import Stopwatch from './Stopwatch';
 
 import './App.css'
 
@@ -34,6 +35,9 @@ function App() {
       <h2>usePrevious</h2>
       <p>Current count: {count}</p>
       <p>Previous count: {previousCount}</p>
+
+      <h2>Stopwatch</h2>
+      <Stopwatch />
     </main>
   )
 }
