@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import { useIsFirstRender } from './useIsFirstRender'
-import { usePrevious } from './usePrevious';
-import Stopwatch from './Stopwatch';
+import { usePrevious } from './usePrevious'
+import Stopwatch from './Stopwatch'
+import IsMountedExample from './IsMountedExample'
 
 import './App.css'
 
@@ -14,23 +15,30 @@ import './App.css'
 #6 usePrevious:useEffect 8 {current: 8} 8
 */
 
-function App() {
-  const isFirstRender = useIsFirstRender();
-  console.log('#1 App');
+function App () {
+  const isFirstRender = useIsFirstRender()
+  console.log('#1 App')
 
-  const [count, setCount] = useState(0);
-  console.log('#2 useState');
+  const [count, setCount] = useState(0)
+  console.log('#2 useState')
 
-  const previousCount = usePrevious(count);
-  console.log('#5 after usePrevious');
+  const previousCount = usePrevious(count)
+  console.log('#5 after usePrevious')
+
+  const [hideIsMountedExample, setHideIsMountedExample] = useState(false)
 
   return (
-    <main className="app">
+    <main className='app'>
       <h1>useRef</h1>
 
       <h2>useIsFirstRender</h2>
-      <p>Is this the first render (only works in production mode)? {isFirstRender ? 'Yes' : 'No'}</p>
-      <p>Rerender: <button onClick={() => setCount(count + 1)}>Increment</button></p>
+      <p>
+        Is this the first render (only works in production mode)?{' '}
+        {isFirstRender ? 'Yes' : 'No'}
+      </p>
+      <p>
+        Rerender: <button onClick={() => setCount(count + 1)}>Increment</button>
+      </p>
 
       <h2>usePrevious</h2>
       <p>Current count: {count}</p>
@@ -38,6 +46,12 @@ function App() {
 
       <h2>Stopwatch</h2>
       <Stopwatch />
+
+      <h2>useIsMounted</h2>
+      <button onClick={() => setHideIsMountedExample(prev => !prev)}>
+        {hideIsMountedExample ? 'Show' : 'Hide'} IsMountedExample
+      </button>
+      {!hideIsMountedExample && <IsMountedExample />}
     </main>
   )
 }
