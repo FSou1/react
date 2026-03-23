@@ -3,6 +3,7 @@ import { useIsFirstRender } from './useIsFirstRender'
 import { usePrevious } from './usePrevious'
 import Stopwatch from './Stopwatch'
 import IsMountedExample from './IsMountedExample'
+import Menu from './Menu'
 
 import './App.css'
 
@@ -26,6 +27,7 @@ function App () {
   console.log('#5 after usePrevious')
 
   const [hideIsMountedExample, setHideIsMountedExample] = useState(false)
+  const [hideUseClickOutside, setHideUseClickOutside] = useState(false)
 
   return (
     <main className='app'>
@@ -52,6 +54,12 @@ function App () {
         {hideIsMountedExample ? 'Show' : 'Hide'} IsMountedExample
       </button>
       {!hideIsMountedExample && <IsMountedExample />}
+
+      <h2>Use Click Outside</h2>
+      <button onClick={() => setHideUseClickOutside(prev => !prev)}>
+        {hideUseClickOutside ? 'Show' : 'Hide'} UseClickOutside
+      </button>
+      {!hideUseClickOutside && <Menu />}
     </main>
   )
 }
