@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useIsFirstRender } from './useIsFirstRender'
 import { usePrevious } from './usePrevious'
+import { useFocus } from './useFocus'
 import Stopwatch from './Stopwatch'
 import IsMountedExample from './IsMountedExample'
 import Menu from './Menu'
@@ -28,6 +29,8 @@ function App () {
 
   const [hideIsMountedExample, setHideIsMountedExample] = useState(false)
   const [hideUseClickOutside, setHideUseClickOutside] = useState(false)
+
+  const [ref, isFocused] = useFocus()
 
   return (
     <main className='app'>
@@ -60,6 +63,10 @@ function App () {
         {hideUseClickOutside ? 'Show' : 'Hide'} UseClickOutside
       </button>
       {!hideUseClickOutside && <Menu />}
+
+      <h2>Use Focus</h2>
+      <input ref={ref} placeholder='Focus me' />
+      <p>Is focused: {isFocused ? 'Yes' : 'No'}</p>
     </main>
   )
 }
