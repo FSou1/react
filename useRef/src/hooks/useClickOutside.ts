@@ -18,7 +18,6 @@ function useClickOutside (onClickOutside) {
     document.addEventListener('pointerdown', handleClick)
 
     return () => {
-      console.log('clean up')
       document.removeEventListener('pointerdown', handleClick)
     }
   }, [])

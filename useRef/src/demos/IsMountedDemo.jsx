@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { useIsMounted } from './useIsMounted'
+import { useIsMounted } from '../hooks/useIsMounted'
 
-export default function IsMountedExample () {
+export default function IsMountedDemo () {
   const isMounted = useIsMounted()
   const [userEmail, setUserEmail] = React.useState('')
 
@@ -16,10 +16,7 @@ export default function IsMountedExample () {
         const data = await res.json()
         setUserEmail(data.email)
       } catch (error) {
-        console.log('ERROR', error)
-
         if (error.name === 'AbortError') {
-          console.log('>>> Request was aborted')
           return
         }
 
@@ -34,11 +31,10 @@ export default function IsMountedExample () {
     }
   }, [])
 
-  console.log('IsMountedExample render', isMounted.current)
-
   return (
     <div>
       <p>User Email: {userEmail}</p>
+      <p>Mounted ref: {isMounted.current ? 'Yes' : 'No'}</p>
     </div>
   )
 }

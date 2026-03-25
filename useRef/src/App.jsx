@@ -1,72 +1,97 @@
 import { useState } from 'react'
-import { useIsFirstRender } from './useIsFirstRender'
-import { usePrevious } from './usePrevious'
-import { useFocus } from './useFocus'
-import Stopwatch from './Stopwatch'
-import IsMountedExample from './IsMountedExample'
-import Menu from './Menu'
+import DemoSection from './components/DemoSection'
+import ClickOutsideDemo from './demos/ClickOutsideDemo'
+import FirstRenderDemo from './demos/FirstRenderDemo'
+import FocusDemo from './demos/FocusDemo'
+import IsMountedDemo from './demos/IsMountedDemo'
+import PreviousValueDemo from './demos/PreviousValueDemo'
+import StopwatchDemo from './demos/StopwatchDemo'
+import UpdateEffectDemo from './demos/UpdateEffectDemo'
+import { useFocus } from './hooks/useFocus'
+import { useIsFirstRender } from './hooks/useIsFirstRender'
+import { usePrevious } from './hooks/usePrevious'
 
 import './App.css'
 
-/*
-#1 App
-#2 useState
-#3 useRef 8 {current: 7} 7
-#4 usePrevious return 8 {current: 7} 7
-#5 after usePrevious
-#6 usePrevious:useEffect 8 {current: 8} 8
-*/
-
 function App () {
   const isFirstRender = useIsFirstRender()
-  console.log('#1 App')
-
   const [count, setCount] = useState(0)
-  console.log('#2 useState')
-
   const previousCount = usePrevious(count)
-  console.log('#5 after usePrevious')
-
   const [hideIsMountedExample, setHideIsMountedExample] = useState(false)
   const [hideUseClickOutside, setHideUseClickOutside] = useState(false)
-
   const [ref, isFocused] = useFocus()
 
   return (
     <main className='app'>
-      <h1>useRef</h1>
+      <header className='app__hero'>
+        <p className='app__eyebrow'>React hook demos</p>
+        <h1>useRef</h1>
+        <p className='app__intro'>
+          A small playground for common patterns built on `useRef`, organized by
+          example instead of one large page component.
+        </p>
+      </header>
 
-      <h2>useIsFirstRender</h2>
-      <p>
-        Is this the first render (only works in production mode)?{' '}
-        {isFirstRender ? 'Yes' : 'No'}
-      </p>
-      <p>
-        Rerender: <button onClick={() => setCount(count + 1)}>Increment</button>
-      </p>
+      <div className='app__grid'>
+        <DemoSection
+          title='useIsFirstRender'
+          description='Track whether the current render is the first one.'
+        >
+          <FirstRenderDemo
+            count={count}
+            isFirstRender={isFirstRender}
+            onIncrement={() => setCount(prevCount => prevCount + 1)}
+          />
+        </DemoSection>
 
-      <h2>usePrevious</h2>
-      <p>Current count: {count}</p>
-      <p>Previous count: {previousCount}</p>
+        <DemoSection
+          title='usePrevious'
+          description='Store the previous value from the last committed render.'
+        >
+          <PreviousValueDemo count={count} previousCount={previousCount} />
+        </DemoSection>
 
-      <h2>Stopwatch</h2>
-      <Stopwatch />
+        <DemoSection
+          title='Stopwatch'
+          description='Use refs for mutable timer state without extra re-renders.'
+        >
+          <StopwatchDemo />
+        </DemoSection>
 
-      <h2>useIsMounted</h2>
-      <button onClick={() => setHideIsMountedExample(prev => !prev)}>
-        {hideIsMountedExample ? 'Show' : 'Hide'} IsMountedExample
-      </button>
-      {!hideIsMountedExample && <IsMountedExample />}
+        <DemoSection
+          title='useIsMounted'
+          description='Toggle a mounted example that cancels work during cleanup.'
+        >
+          <button onClick={() => setHideIsMountedExample(prev => !prev)}>
+            {hideIsMountedExample ? 'Show' : 'Hide'} mounted example
+          </button>
+          {!hideIsMountedExample && <IsMountedDemo />}
+        </DemoSection>
 
-      <h2>Use Click Outside</h2>
-      <button onClick={() => setHideUseClickOutside(prev => !prev)}>
-        {hideUseClickOutside ? 'Show' : 'Hide'} UseClickOutside
-      </button>
-      {!hideUseClickOutside && <Menu />}
+        <DemoSection
+          title='useClickOutside'
+          description='Track pointer events outside a referenced element.'
+        >
+          <button onClick={() => setHideUseClickOutside(prev => !prev)}>
+            {hideUseClickOutside ? 'Show' : 'Hide'} click outside demo
+          </button>
+          {!hideUseClickOutside && <ClickOutsideDemo />}
+        </DemoSection>
 
-      <h2>Use Focus</h2>
-      <input ref={ref} placeholder='Focus me' />
-      <p>Is focused: {isFocused ? 'Yes' : 'No'}</p>
+        <DemoSection
+          title='useFocus'
+          description='Attach focus and blur listeners to an input element.'
+        >
+          <FocusDemo inputRef={ref} isFocused={isFocused} />
+        </DemoSection>
+
+        <DemoSection
+          title='useUpdateEffect'
+          description='Run an effect only after the initial mount has passed.'
+        >
+          <UpdateEffectDemo />
+        </DemoSection>
+      </div>
     </main>
   )
 }

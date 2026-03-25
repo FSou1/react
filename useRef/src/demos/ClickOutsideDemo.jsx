@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import useClickOutside from './useClickOutside'
+import useClickOutside from '../hooks/useClickOutside'
 
-export default function Menu () {
+export default function ClickOutsideDemo () {
   const [count, setCount] = useState(0)
 
   const ref = useClickOutside(() => {
-    console.log('count =', count)
+    console.log(`Clicked outside with count at ${count}`)
   })
 
   return (
