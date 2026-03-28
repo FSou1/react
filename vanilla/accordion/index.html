@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion Example</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="accordion-page">
+      <a class="back-link" href="../index.html">Back to projects</a>
+
+      <header class="page-header">
+        <p class="eyebrow">Project 01</p>
+        <h1>Accordion</h1>
+        <p>
+          Starter exercise for practicing click handlers, class toggling, and
+          simple DOM updates.
+        </p>
+      </header>
+
+      <section class="accordion" aria-label="Settings">
+        <div class="accordion-item">
+          <h2 class="accordion-heading">
+            <button
+              id="accordion-header-profile"
+              class="accordion-header"
+              type="button"
+              aria-expanded="false"
+              aria-controls="panel-profile"
+            >
+              <span class="accordion-header-content">
+                <span class="accordion-title">Profile</span>
+                <span class="accordion-subtitle">Personal information</span>
+              </span>
+              <span class="accordion-chevron" aria-hidden="true">⌄</span>
+            </button>
+          </h2>
+
+          <div
+            id="panel-profile"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-profile"
+          >
+            <div class="accordion-panel-inner">
+              <ul class="accordion-panel-list">
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Name</span>
+                  <span class="accordion-panel-value">Max Zhukov</span>
+                </li>
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Role</span>
+                  <span class="accordion-panel-value">Senior Frontend Engineer</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-heading">
+            <button
+              id="accordion-header-notifications"
+              class="accordion-header"
+              type="button"
+              aria-expanded="false"
+              aria-controls="panel-notifications"
+            >
+              <span class="accordion-header-content">
+                <span class="accordion-title">Notifications</span>
+                <span class="accordion-subtitle">Alerts and updates</span>
+              </span>
+              <span class="accordion-chevron" aria-hidden="true">⌄</span>
+            </button>
+          </h2>
+
+          <div
+            id="panel-notifications"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-notifications"
+          >
+            <div class="accordion-panel-inner">
+              <ul class="accordion-panel-list">
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Email alerts</span>
+                  <span class="accordion-panel-value">Enabled</span>
+                </li>
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Product updates</span>
+                  <span class="accordion-panel-value">Enabled</span>
+                </li>
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Security messages</span>
+                  <span class="accordion-panel-value">Required</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-heading">
+            <button
+              id="accordion-header-privacy"
+              class="accordion-header"
+              type="button"
+              aria-expanded="false"
+              aria-controls="panel-privacy"
+            >
+              <span class="accordion-header-content">
+                <span class="accordion-title">Privacy</span>
+                <span class="accordion-subtitle">Security and access</span>
+              </span>
+              <span class="accordion-chevron" aria-hidden="true">⌄</span>
+            </button>
+          </h2>
+
+          <div
+            id="panel-privacy"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-privacy"
+          >
+            <div class="accordion-panel-inner">
+              <ul class="accordion-panel-list">
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Password</span>
+                  <span class="accordion-panel-value">Last changed 30 days ago</span>
+                </li>
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Two-factor authentication</span>
+                  <span class="accordion-panel-value">On</span>
+                </li>
+                <li class="accordion-panel-item">
+                  <span class="accordion-panel-label">Session history</span>
+                  <span class="accordion-panel-value">3 active devices</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
