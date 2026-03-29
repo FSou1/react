@@ -1,0 +1,134 @@
+.app-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.app-shell__header {
+  margin-bottom: 1.75rem;
+}
+
+.app-shell__eyebrow {
+  margin: 0 0 0.5rem;
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-shell__header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.app-shell__intro {
+  max-width: 60ch;
+  margin: 0.85rem 0 0;
+  color: #4b5563;
+}
+
+.app-shell__layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.app-shell__sidebar,
+.page-card {
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.app-shell__sidebar {
+  padding: 0.75rem;
+}
+
+.app-shell__nav {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.app-shell__nav-link {
+  display: block;
+  padding: 0.8rem 0.9rem;
+  border-radius: 10px;
+  color: #111827;
+  text-decoration: none;
+}
+
+.app-shell__nav-link:hover {
+  background: #f3f4f6;
+}
+
+.app-shell__nav-link--active {
+  background: #e5e7eb;
+  font-weight: 700;
+}
+
+.page-card {
+  overflow: hidden;
+}
+
+.page-card__section {
+  padding: 1.25rem;
+}
+
+.page-card__section + .page-card__section {
+  border-top: 1px solid #e5e7eb;
+}
+
+.page-card__label {
+  margin: 0 0 0.4rem;
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-card h2,
+.page-card h3 {
+  margin: 0;
+}
+
+.page-card p,
+.page-card li {
+  color: #374151;
+  line-height: 1.6;
+}
+
+.page-card p {
+  margin: 0.7rem 0 0;
+}
+
+.page-card__list {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.code-block {
+  margin: 0.9rem 0 0;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  background: #f3f4f6;
+}
+
+.code-block code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 840px) {
+  .app-shell__layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .app-shell__sidebar {
+    position: sticky;
+    top: 1rem;
+  }
+}
