@@ -1,9 +1,10 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
-import MockAttributePage from './pages/MockAttributePage'
 import './App.css'
 import AriaLabelPage from './pages/AriaLabelPage'
 import AreaLabelledByPage from './pages/AreaLabelledByPage'
+import AriaHiddenPage from './pages/AriaHiddenPage'
+import AriaDescribedByPage from './pages/AriaDescribedByPage'
 
 function App() {
   return (
@@ -46,6 +47,22 @@ function App() {
             >
               aria-labelledby
             </NavLink>
+            <NavLink
+              to="/aria-hidden"
+              className={({ isActive }) =>
+                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
+              }
+            >
+              aria-hidden
+            </NavLink>
+            <NavLink
+              to="/aria-describedby"
+              className={({ isActive }) =>
+                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
+              }
+            >
+              aria-describedby
+            </NavLink>
           </nav>
         </aside>
 
@@ -54,6 +71,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/aria-label" element={<AriaLabelPage />} />
             <Route path="/aria-labelledby" element={<AreaLabelledByPage />} />
+            <Route path="/aria-hidden" element={<AriaHiddenPage />} />
+            <Route path="/aria-describedby" element={<AriaDescribedByPage />} />
           </Routes>
         </section>
       </div>
