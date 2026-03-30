@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage'
 import MockAttributePage from './pages/MockAttributePage'
 import './App.css'
 import AriaLabelPage from './pages/AriaLabelPage'
+import AreaLabelledByPage from './pages/AreaLabelledByPage'
 
 function App() {
   return (
@@ -37,6 +38,14 @@ function App() {
             >
               aria-label
             </NavLink>
+            <NavLink
+              to="/aria-labelledby"
+              className={({ isActive }) =>
+                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
+              }
+            >
+              aria-labelledby
+            </NavLink>
           </nav>
         </aside>
 
@@ -44,6 +53,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/aria-label" element={<AriaLabelPage />} />
+            <Route path="/aria-labelledby" element={<AreaLabelledByPage />} />
           </Routes>
         </section>
       </div>

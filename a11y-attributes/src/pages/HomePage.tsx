@@ -18,6 +18,9 @@ function HomePage() {
           <li>
             <Link to="/aria-label">aria-label</Link>
           </li>
+          <li>
+            <Link to="/aria-labelledby">aria-labelledby</Link>
+          </li>
         </ul>
       </div>
 
