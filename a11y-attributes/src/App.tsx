@@ -1,10 +1,6 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
 import './App.css'
-import AriaLabelPage from './pages/AriaLabelPage'
-import AreaLabelledByPage from './pages/AreaLabelledByPage'
-import AriaHiddenPage from './pages/AriaHiddenPage'
-import AriaDescribedByPage from './pages/AriaDescribedByPage'
+import { attributePages } from './attributePages'
 
 function App() {
   return (
@@ -22,57 +18,34 @@ function App() {
       <div className="app-shell__layout">
         <aside className="app-shell__sidebar" aria-label="Project navigation">
           <nav className="app-shell__nav">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/aria-label"
-              className={({ isActive }) =>
-                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
-              }
-            >
-              aria-label
-            </NavLink>
-            <NavLink
-              to="/aria-labelledby"
-              className={({ isActive }) =>
-                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
-              }
-            >
-              aria-labelledby
-            </NavLink>
-            <NavLink
-              to="/aria-hidden"
-              className={({ isActive }) =>
-                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
-              }
-            >
-              aria-hidden
-            </NavLink>
-            <NavLink
-              to="/aria-describedby"
-              className={({ isActive }) =>
-                `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
-              }
-            >
-              aria-describedby
-            </NavLink>
+            {attributePages.map((page) => (
+              <NavLink
+                key={page.path}
+                to={page.path}
+                className={({ isActive }) =>
+                  `app-shell__nav-link${isActive ? ' app-shell__nav-link--active' : ''}`
+                }
+              >
+                {page.label}
+              </NavLink>
+            ))}
           </nav>
         </aside>
 
         <section className="app-shell__content">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/aria-label" element={<AriaLabelPage />} />
-            <Route path="/aria-labelledby" element={<AreaLabelledByPage />} />
-            <Route path="/aria-hidden" element={<AriaHiddenPage />} />
-            <Route path="/aria-describedby" element={<AriaDescribedByPage />} />
+            {attributePages.map((page) => {
+              const PageComponent = page.component
+
+              return (
+                <Route
+                  key={page.path}
+                  path={page.path}
+                  element={<PageComponent />}
+                />
+              )
+            })}
+            <Route path="*" element={<p>Select an attribute from the sidebar to see details and examples.</p>} />
           </Routes>
         </section>
       </div>
