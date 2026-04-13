@@ -7,7 +7,7 @@ function App() {
     <main className="app-shell">
       <header className="app-shell__header">
         <p className="app-shell__eyebrow">Reference project</p>
-        <h1>Accessibility Attributes</h1>
+        <h1>{`Accessibility Attributes (${attributePages.length})`}</h1>
         <p className="app-shell__intro">
           Add one accessibility attribute per page. The starter app is mostly
           empty on purpose, with a single mock page that shows the layout for
