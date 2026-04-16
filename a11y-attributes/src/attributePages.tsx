@@ -1,5 +1,7 @@
 import type { ComponentType } from 'react'
+import AriaBusy from './pages/AriaBusy'
 import AriaControls from './pages/AriaControls'
+import AriaCurrent from './pages/AriaCurrent'
 import AriaDescribedByPage from './pages/AriaDescribedByPage'
 import AriaExpanded from './pages/AriaExpanded'
 import AriaHiddenPage from './pages/AriaHiddenPage'
@@ -8,6 +10,7 @@ import AriaLabelPage from './pages/AriaLabelPage'
 import AriaLive from './pages/AriaLive'
 import AriaPressed from './pages/AriaPressed'
 import AriaRequired from './pages/AriaRequired'
+import AriaSelected from './pages/AriaSelected'
 import AreaLabelledByPage from './pages/AreaLabelledByPage'
 
 export type AttributePage = {
@@ -66,5 +69,20 @@ export const attributePages: AttributePage[] = [
     path: '/aria-live',
     label: 'aria-live',
     component: AriaLive,
+  },
+  {
+    path: '/aria-current',
+    label: 'aria-current',
+    component: AriaCurrent,
+  },
+  {
+    path: '/aria-selected',
+    label: 'aria-selected',
+    component: AriaSelected,
+  },
+  {
+    path: '/aria-busy',
+    label: 'aria-busy',
+    component: AriaBusy,
   },
 ]
