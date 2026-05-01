@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import AriaBusy from './pages/AriaBusy'
+import AriaChecked from './pages/AriaChecked'
 import AriaControls from './pages/AriaControls'
 import AriaCurrent from './pages/AriaCurrent'
 import AriaDescribedByPage from './pages/AriaDescribedByPage'
@@ -76,6 +77,11 @@ export const attributePages: AttributePage[] = [
     path: '/aria-pressed',
     label: 'aria-pressed',
     component: AriaPressed,
+  },
+  {
+    path: '/aria-checked',
+    label: 'aria-checked',
+    component: AriaChecked,
   },
   {
     path: '/aria-live',
