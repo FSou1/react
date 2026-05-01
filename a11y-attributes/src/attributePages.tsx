@@ -5,6 +5,7 @@ import AriaCurrent from './pages/AriaCurrent'
 import AriaDescribedByPage from './pages/AriaDescribedByPage'
 import AriaDisabled from './pages/AriaDisabled'
 import AriaExpanded from './pages/AriaExpanded'
+import AriaHasPopup from './pages/AriaHasPopup'
 import AriaHiddenPage from './pages/AriaHiddenPage'
 import AriaInvalid from './pages/AriaInvalid'
 import AriaLabelPage from './pages/AriaLabelPage'
@@ -50,6 +51,11 @@ export const attributePages: AttributePage[] = [
     path: '/aria-controls',
     label: 'aria-controls',
     component: AriaControls,
+  },
+  {
+    path: '/aria-haspopup',
+    label: 'aria-haspopup',
+    component: AriaHasPopup,
   },
   {
     path: '/aria-invalid',
