@@ -3,6 +3,7 @@ import AriaBusy from './pages/AriaBusy'
 import AriaControls from './pages/AriaControls'
 import AriaCurrent from './pages/AriaCurrent'
 import AriaDescribedByPage from './pages/AriaDescribedByPage'
+import AriaDisabled from './pages/AriaDisabled'
 import AriaExpanded from './pages/AriaExpanded'
 import AriaHiddenPage from './pages/AriaHiddenPage'
 import AriaInvalid from './pages/AriaInvalid'
@@ -59,6 +60,11 @@ export const attributePages: AttributePage[] = [
     path: '/aria-required',
     label: 'aria-required',
     component: AriaRequired,
+  },
+  {
+    path: '/aria-disabled',
+    label: 'aria-disabled',
+    component: AriaDisabled,
   },
   {
     path: '/aria-pressed',
