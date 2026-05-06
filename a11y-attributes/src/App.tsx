@@ -1,13 +1,40 @@
+import { useEffect, useState } from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { attributePages } from './attributePages'
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return window.localStorage.getItem('theme') !== 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = isDarkMode ? 'dark' : 'light'
+    window.localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+  }, [isDarkMode])
+
   return (
     <main className="app-shell">
       <header className="app-shell__header">
-        <p className="app-shell__eyebrow">Reference project</p>
-        <h1>{`Accessibility Attributes (${attributePages.length})`}</h1>
+        <div className="app-shell__header-row">
+          <div>
+            <p className="app-shell__eyebrow">Reference project</p>
+            <h1>{`Accessibility Attributes (${attributePages.length})`}</h1>
+          </div>
+
+          <label className="theme-toggle">
+            <input
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={(event) => setIsDarkMode(event.target.checked)}
+            />
+            <span className="theme-toggle__track" aria-hidden="true">
+              <span className="theme-toggle__thumb" />
+            </span>
+            <span className="theme-toggle__label">Dark mode</span>
+          </label>
+        </div>
+
         <p className="app-shell__intro">
           Add one accessibility attribute per page. The starter app is mostly
           empty on purpose, with a single mock page that shows the layout for

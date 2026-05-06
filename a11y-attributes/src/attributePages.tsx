@@ -1,4 +1,6 @@
 import type { ComponentType } from 'react'
+import AriaActiveDescendant from './pages/AriaActiveDescendant'
+import AriaAtomic from './pages/AriaAtomic'
 import AriaBusy from './pages/AriaBusy'
 import AriaChecked from './pages/AriaChecked'
 import AriaControls from './pages/AriaControls'
@@ -11,7 +13,9 @@ import AriaHiddenPage from './pages/AriaHiddenPage'
 import AriaInvalid from './pages/AriaInvalid'
 import AriaLabelPage from './pages/AriaLabelPage'
 import AriaLive from './pages/AriaLive'
+import AriaOwns from './pages/AriaOwns'
 import AriaPressed from './pages/AriaPressed'
+import AriaRelevant from './pages/AriaRelevant'
 import AriaRequired from './pages/AriaRequired'
 import AriaSelected from './pages/AriaSelected'
 import AreaLabelledByPage from './pages/AreaLabelledByPage'
@@ -59,6 +63,16 @@ export const attributePages: AttributePage[] = [
     component: AriaHasPopup,
   },
   {
+    path: '/aria-activedescendant',
+    label: 'aria-activedescendant',
+    component: AriaActiveDescendant,
+  },
+  {
+    path: '/aria-owns',
+    label: 'aria-owns',
+    component: AriaOwns,
+  },
+  {
     path: '/aria-invalid',
     label: 'aria-invalid',
     component: AriaInvalid,
@@ -102,5 +116,15 @@ export const attributePages: AttributePage[] = [
     path: '/aria-busy',
     label: 'aria-busy',
     component: AriaBusy,
+  },
+  {
+    path: '/aria-atomic',
+    label: 'aria-atomic',
+    component: AriaAtomic,
+  },
+  {
+    path: '/aria-relevant',
+    label: 'aria-relevant',
+    component: AriaRelevant,
   },
 ]
